@@ -24,6 +24,25 @@ exports.up = async knex => {
     });
 
   await knex.raw(`
+    CREATE OR REPLACE FUNCTION update_updated_at() RETURNS trigger
+      LANGUAGE plpgsql SECURITY DEFINER
+      AS $$
+      BEGIN
+        -- Return early if operation is not an update or insert.
+        IF (TG_OP NOT IN ('UPDATE', 'INSERT')) THEN
+          RETURN NEW;
+        END IF;
+
+        -- Update \`updatedAt\`.
+        NEW."updatedAt" := NOW();
+        RAISE NOTICE 'updatedAt was automatically updated by update_updated_at trigger';
+
+        RETURN NEW;
+      END;
+    $$;
+  `);
+
+  await knex.raw(`
     CREATE TRIGGER update_updated_at BEFORE UPDATE ON core."Users" FOR EACH ROW EXECUTE PROCEDURE update_updated_at();
   `);
 };
