@@ -36,12 +36,41 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: |
-        yarn install --frozen-lockfile
-        yarn lint
-        yarn test
+    - name: Install dependencies
+      run:  yarn install --frozen-lockfile
+
+    - name: Lint
+      run: yarn lint
+
+    - name: Test
+      run: yarn test
       env:
         DATABASE_HOST: localhost
         DATABASE_PORT: ${{ job.services.postgres.ports[5432] }}
         REDIS_HOST: localhost
         REDIS_PORT: ${{ job.services.redis.ports[6379] }}
+
+    - name: Docker build
+      if: github.ref == 'refs/heads/master'
+      run: docker build -f docker/api-admin/Dockerfile -t registry.gitlab.com/upview/core-api-images/api-admin:latest .
+
+    - name: Gitlab registry login
+      if: contains(github.ref, 'tags')
+      run: docker login -u gitlab-ci-token -p ${{ secrets.GITLAB_ACCESS_TOKEN }} registry.gitlab.com
+
+    - name: Push docker master image
+      if: github.ref == 'refs/heads/master'
+      run: docker push registry.gitlab.com/upview/core-api-images/api-admin
+
+    - name: Get tag name
+      id: get_tag_name
+      if: contains(github.ref, 'tags')
+      run: echo ::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}
+
+    - name: Tag docker image
+      if: contains(github.ref, 'tags')
+      run: docker tag registry.gitlab.com/upview/core-api-images/api-admin:latest registry.gitlab.com/upview/core-api-images/api-admin:${{ steps.get_tag_name.outputs.TAG_NAME }}
+
+    - name: Push tagged docker image
+      if: contains(github.ref, 'tags')
+      run: docker push registry.gitlab.com/upview/core-api-images/api-admin:${{ steps.get_tag_name.outputs.TAG_NAME }}
