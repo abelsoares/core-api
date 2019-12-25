@@ -1,0 +1,108 @@
+{
+  "name": "core-api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Core API",
+  "repository": "git@github.com:abelsoares/core-api.git",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "upview",
+    "email": "abel@upview.io",
+    "url": "https://upview.io"
+  },
+  "scripts": {
+    "api-admin": "node apps/api-admin",
+    "changelog": "github-changelog-generator --future-release=v$npm_package_version > CHANGELOG.md",
+    "lint": "eslint --cache apps bin fixtures src test",
+    "lint-staged": "lint-staged",
+    "migrations:latest": "node node_modules/.bin/knex migrate:latest",
+    "test": "NODE_ENV=test jest --runInBand",
+    "test-watch": "NODE_ENV=test jest --watch --notify --runInBand --onlyChanged",
+    "version": "npm run changelog && git add -A CHANGELOG.md"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "config",
+      "migrations",
+      "src/core/clients",
+      "src/core/logging",
+      "src/core/mocks",
+      "test"
+    ],
+    "moduleNameMapper": {
+      "apps/(.*)": "<rootDir>/apps/$1",
+      "fixtures/(.*)": "<rootDir>/fixtures/$1",
+      "src/(.*)": "<rootDir>/src/$1",
+      "test/(.*)": "<rootDir>/test/$1"
+    },
+    "restoreMocks": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setup.js"
+    ],
+    "testEnvironment": "node",
+    "testRegex": "(test/.*\\.test.js)$"
+  },
+  "dependencies": {
+    "ajv": "^6.7.0",
+    "ajv-keywords": "^3.3.0",
+    "app-module-path": "^2.2.0",
+    "auth-header": "^1.0.0",
+    "aws-sdk": "^2.437.0",
+    "bcrypt": "^3.0.6",
+    "bluebird": "^3.5.3",
+    "commander": "^2.19.0",
+    "config": "^3.0.1",
+    "debugnyan": "^2.0.2",
+    "http-shutdown": "^1.2.0",
+    "ioredis": "^4.5.1",
+    "json-mask": "^0.3.8",
+    "jwt-simple": "^0.5.5",
+    "kcors": "^2.2.2",
+    "knex": "^0.20.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-error-mapper": "^4.0.1",
+    "koa-helmet": "^5.2.0",
+    "koa-qs": "^2.0.0",
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.11",
+    "mime": "^2.4.0",
+    "moment": "^2.24.0",
+    "nanoid": "^2.0.1",
+    "node-mailjet": "^3.3.1",
+    "pg": "^7.8.0",
+    "raven": "^2.6.4",
+    "standard-http-error": "^2.0.1",
+    "url-join": "^4.0.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@uphold/github-changelog-generator": "^0.8.0",
+    "eslint": "^5.12.1",
+    "eslint-config-uphold": "^0.2.0",
+    "eslint-plugin-jest": "^22.2.2",
+    "eslint-plugin-sort-requires": "^2.1.0",
+    "faker": "^4.1.0",
+    "jest": "^24.3.0",
+    "lint-staged": "^8.1.0",
+    "nock": "^10.0.6",
+    "pre-commit": "^1.2.2",
+    "request-promise": "^4.2.4",
+    "require-dir": "^1.2.0",
+    "supertest": "^3.4.2"
+  },
+  "engines": {
+    "node": ">=10.10.0"
+  },
+  "lint-staged": {
+    "{apps,bin,fixtures,src,test}/**/*.js": [
+      "eslint"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+.eslintcache
+.eslintrc.yml
+.git
+.gitignore
+.travis.yml
+codecov.yml
+config/local.js
+coverage
+docker-compose.yml
+Dockerfile
+node_modules
+public
+README.md

@@ -1,0 +1,11 @@
+extends: uphold
+
+plugins:
+  - jest
+  - sort-requires
+
+rules:
+  jest/no-disabled-tests: 2
+  jest/no-focused-tests: 2
+  padded-blocks: [error, { blocks: never, classes: always, switches: never }]
+  sort-requires/sort-requires: 2

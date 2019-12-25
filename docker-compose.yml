@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:10.6-alpine
+    environment:
+      POSTGRES_DB: application
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:3.2.6-alpine
+    ports:
+      - 6379:6379

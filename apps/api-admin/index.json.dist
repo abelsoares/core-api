@@ -1,0 +1,19 @@
+{
+  "cwd": "/path/to/core-api/directory",
+  "env": {
+    "DATABASE_HOST": "<database_host>",
+    "DATABASE_NAME": "<database_name>",
+    "DATABASE_PASSWORD": "<database_password>",
+    "DATABASE_USER": "<database_user>",
+    "DEBUG": "(freshland)*",
+    "NODE_ENV": "<environment>",
+    "REDIS_HOST": "<redis_host>"
+  },
+  "exec_mode": "fork",
+  "instances": "8",
+  "kill_timeout": 120000,
+  "merge_logs": true,
+  "name": "api",
+  "script": "apps/api-admin/index.js",
+  "wait_ready": true
+}
