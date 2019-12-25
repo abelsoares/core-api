@@ -12,6 +12,7 @@ const helmet = require('koa-helmet');
 const httpErrorMapper = require('src/core/errors/mappers/http-error-mapper');
 const kcors = require('kcors');
 const Koa = require('koa');
+const koaSimpleHealthcheck = require('koa-simple-healthcheck');
 const MalformedRequestBodyError = require('src/core/errors/malformed-request-body-error');
 const malformedRequestBodyErrorMapper = require('src/core/errors/mappers/malformed-request-body-error-mapper');
 const qs = require('koa-qs');
@@ -31,6 +32,9 @@ module.exports = () => {
 
   // Enable Sentry.
   sentry(app);
+
+  // Enable koa simple healthcheck.
+  app.use(koaSimpleHealthcheck({ path: '/v0/status' }));
 
   // Enable CORS.
   app.use(kcors(config.get('cors')));

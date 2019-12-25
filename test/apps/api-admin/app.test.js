@@ -50,4 +50,10 @@ describe('Api', () => {
         message: 'Malformed Request Body'
       });
   });
+
+  it('should return 200 on `/status` endpoint', async () => {
+    await request
+      .get('/status')
+      .expect(200);
+  });
 });
