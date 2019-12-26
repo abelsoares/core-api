@@ -5,7 +5,7 @@
     "DATABASE_NAME": "<database_name>",
     "DATABASE_PASSWORD": "<database_password>",
     "DATABASE_USER": "<database_user>",
-    "DEBUG": "(freshland)*",
+    "DEBUG": "(upview)*",
     "NODE_ENV": "<environment>",
     "REDIS_HOST": "<redis_host>"
   },

@@ -40,7 +40,7 @@ class EmailService {
         Messages: [{
           TemplateErrorDeliver: true,
           TemplateErrorReporting: { Email: config.get('email.errorReportingEmail') },
-          TemplateID: 736610,
+          TemplateID: 1155653,
           TemplateLanguage: true,
           To: [{
             Email: user.email,
@@ -80,7 +80,7 @@ class EmailService {
         Messages: [{
           TemplateErrorDeliver: true,
           TemplateErrorReporting: { Email: config.get('email.errorReportingEmail') },
-          TemplateID: 741183,
+          TemplateID: 1155671,
           TemplateLanguage: true,
           To: [{
             Email: user.email,
@@ -110,7 +110,7 @@ class EmailService {
         Messages: [{
           TemplateErrorDeliver: true,
           TemplateErrorReporting: { Email: config.get('email.errorReportingEmail') },
-          TemplateID: 741186,
+          TemplateID: 1155686,
           TemplateLanguage: true,
           To: [{
             Email: user.email,

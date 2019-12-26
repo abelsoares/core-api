@@ -29,11 +29,10 @@ module.exports = {
     }
   },
   email: {
-    errorReportingEmail: 'dev@fresh.land',
+    errorReportingEmail: 'abel@upview.io',
     key: 'foo',
     paths: {
       accountConfirmation: 'account/confirm',
-      productNotify: 'products/%s',
       resetPassword: 'password/reset'
     },
     secret: 'bar'
