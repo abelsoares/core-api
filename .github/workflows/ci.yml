@@ -55,7 +55,7 @@ jobs:
         REDIS_PORT: ${{ job.services.redis.ports[6379] }}
 
     - name: Docker build
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master' || contains(github.ref, 'tags')
       run: docker build -f docker/api-admin/Dockerfile -t registry.gitlab.com/upview/core-api-images/api-admin:latest .
 
     - name: Gitlab registry login
