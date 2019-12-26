@@ -1,4 +1,5 @@
 .eslintcache
+apps/api-admin/index.json
 config/local.js
 coverage
 node_modules
