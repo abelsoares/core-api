@@ -2,6 +2,11 @@ on:
   push:
     branches:
       - master
+
+  push:
+    tags:
+      - '*'
+
   pull_request:
     branches:
       - master
