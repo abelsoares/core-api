@@ -14,7 +14,7 @@ jobs:
         run: echo ::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}
 
       - name: Deploy to Heroku
-        run: git push https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_API_ADMIN_APP }}.git origin/master:master
+        run: git push https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_API_ADMIN_APP }}.git HEAD:master
 
       - name: Update Heroku api admin app release version
         if: success()
