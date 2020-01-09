@@ -16,16 +16,10 @@ const Promise = require('bluebird');
  * Instances.
  */
 
+const host = config.get('server.apiAdmin.listen.hostname');
 // eslint-disable-next-line no-process-env
-const { NODE_APP_INSTANCE } = process.env;
-const host = config.get('server.api.listen.hostname');
-const port = config.get('server.api.listen.port') + Number(NODE_APP_INSTANCE || 0);
+const port = process.env.PORT || config.get('server.apiAdmin.listen.port');
 const server = require('http-shutdown')(api().listen(port, host));
-
-// Tell pm2 that the server is now online.
-if (process.send) {
-  server.once('listening', () => process.send('ready'));
-}
 
 /**
  * Promisify `server`.

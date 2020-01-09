@@ -9,13 +9,7 @@ module.exports = {
     credentials: 'CORS_CREDENTIALS'
   },
   database: {
-    connection: {
-      database: 'DATABASE_NAME',
-      host: 'DATABASE_HOST',
-      password: 'DATABASE_PASSWORD',
-      port: 'DATABASE_PORT',
-      user: 'DATABASE_USER'
-    }
+    connection: 'DATABASE_CONNECTION'
   },
   email: {
     key: 'EMAIL_KEY',
@@ -48,10 +42,10 @@ module.exports = {
     dsn: 'SENTRY_DSN'
   },
   server: {
-    api: {
+    apiAdmin: {
       listen: {
-        hostname: 'SERVER_API_LISTEN_HOSTNAME',
-        port: 'SERVER_API_LISTEN_PORT'
+        hostname: 'SERVER_API_ADMIN_LISTEN_HOSTNAME',
+        port: 'SERVER_API_ADMIN_LISTEN_PORT'
       }
     }
   }
