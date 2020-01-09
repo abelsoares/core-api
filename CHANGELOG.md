@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.7](https://github.com/abelsoares/core-api/releases/tag/v0.0.7) (2020-01-09)
+- Update redis connection configuration [\#14](https://github.com/abelsoares/core-api/pull/14) ([abelsoares](https://github.com/abelsoares))
+
 ## [v0.0.6](https://github.com/abelsoares/core-api/releases/tag/v0.0.6) (2020-01-09)
 - Update redis configuration [\#13](https://github.com/abelsoares/core-api/pull/13) ([abelsoares](https://github.com/abelsoares))
 
