@@ -28,7 +28,7 @@ module.exports = {
     whitelist: 'NOCK_WHITELIST'
   },
   redis: {
-    connection: 'REDIS_URL'
+    connection: 'REDIS_CONNECTION'
   },
   router: {
     applicationBaseUrl: 'ROUTER_APPLICATION_BASE_URL'
