@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.4](https://github.com/abelsoares/core-api/releases/tag/v0.0.4) (2020-01-09)
+- Update deploy action [\#11](https://github.com/abelsoares/core-api/pull/11) ([abelsoares](https://github.com/abelsoares))
+
 ## [v0.0.3](https://github.com/abelsoares/core-api/releases/tag/v0.0.3) (2020-01-09)
 
 ## [v0.0.2](https://github.com/abelsoares/core-api/releases/tag/v0.0.2) (2020-01-09)

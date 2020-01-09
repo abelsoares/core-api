@@ -1,6 +1,6 @@
 {
   "name": "core-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "Core API",
   "repository": "git@github.com:abelsoares/core-api.git",
