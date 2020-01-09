@@ -9,20 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Get tag name
-        id: get_tag_name
-        run: echo ::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}
-
       - name: Deploy to Heroku
         run: git push https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_API_ADMIN_APP }}.git HEAD:master
-
-      - name: Update Heroku api admin app release version
-        if: success()
-        run: |
-          curl -n -X PATCH https://api.heroku.com/apps/${{ secrets.HEROKU_API_ADMIN_APP }}/config-vars \
-          -d '{
-          "RELEASE_VERSION”: "${{ steps.get_tag_name.outputs.TAG_NAME }}",
-          }’ \
-          -H "Authorization: Bearer ${{ secrets.HEROKU_API_TOKEN }}"
-          -H "Content-Type: application/json" \
-          -H "Accept: application/vnd.heroku+json; version=3"
