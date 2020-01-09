@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.5](https://github.com/abelsoares/core-api/releases/tag/v0.0.5) (2020-01-09)
+- Remove release tag from deploy action [\#12](https://github.com/abelsoares/core-api/pull/12) ([abelsoares](https://github.com/abelsoares))
+
 ## [v0.0.4](https://github.com/abelsoares/core-api/releases/tag/v0.0.4) (2020-01-09)
 - Update deploy action [\#11](https://github.com/abelsoares/core-api/pull/11) ([abelsoares](https://github.com/abelsoares))
 
