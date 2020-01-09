@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.6](https://github.com/abelsoares/core-api/releases/tag/v0.0.6) (2020-01-09)
+- Update redis configuration [\#13](https://github.com/abelsoares/core-api/pull/13) ([abelsoares](https://github.com/abelsoares))
+
 ## [v0.0.5](https://github.com/abelsoares/core-api/releases/tag/v0.0.5) (2020-01-09)
 - Remove release tag from deploy action [\#12](https://github.com/abelsoares/core-api/pull/12) ([abelsoares](https://github.com/abelsoares))
 
