@@ -68,7 +68,7 @@ module.exports = {
     }
   },
   server: {
-    api: {
+    apiAdmin: {
       listen: {
         hostname: '0.0.0.0',
         port: 4001

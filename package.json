@@ -99,7 +99,8 @@
     "supertest": "^3.4.2"
   },
   "engines": {
-    "node": ">=10.10.0"
+    "node": ">=12.4.0",
+    "yarn": "1.21.1"
   },
   "lint-staged": {
     "{apps,bin,fixtures,src,test}/**/*.js": [
