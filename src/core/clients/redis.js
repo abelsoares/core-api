@@ -12,13 +12,13 @@ const Redis = require('ioredis');
  * Redis.
  */
 
-const redis = new Redis(config.get('redis'));
+const redis = new Redis(config.get('redis.connection'));
 
 /**
  * Event `ready` and `error` callback.
  */
 
-redis.on('ready', () => logger.info(`Connected to Redis database ${config.get('redis.db')} at ${config.get('redis.host')}:${config.get('redis.port')}`));
+redis.on('ready', () => logger.info(`Connected to Redis database ${config.get('redis.connection.db')} at ${config.get('redis.connection.host')}:${config.get('redis.connection.port')}`));
 redis.on('error', error => logger.error({ error }, 'An error ocurred in redis'));
 
 /**

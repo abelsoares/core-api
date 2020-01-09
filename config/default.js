@@ -47,9 +47,11 @@ module.exports = {
     }
   },
   redis: {
-    db: 0,
-    host: 'localhost',
-    port: 6379
+    connection: {
+      db: 0,
+      host: 'localhost',
+      port: 6379
+    }
   },
   reset: {
     unit: 'hour',
