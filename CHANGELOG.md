@@ -1,5 +1,7 @@
 # Changelog
 
+## [v0.0.3](https://github.com/abelsoares/core-api/releases/tag/v0.0.3) (2020-01-09)
+
 ## [v0.0.2](https://github.com/abelsoares/core-api/releases/tag/v0.0.2) (2020-01-09)
 - Add deploy action [\#10](https://github.com/abelsoares/core-api/pull/10) ([abelsoares](https://github.com/abelsoares))
 - Update config to support heroku [\#8](https://github.com/abelsoares/core-api/pull/8) ([abelsoares](https://github.com/abelsoares))
