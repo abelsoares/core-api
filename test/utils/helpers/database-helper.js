@@ -20,13 +20,13 @@ Client.prototype.query = _.wrap(Client.prototype.query, function(fn) {
   }
 
   const query = _.get(arguments, '[2].sql.query', _.get(arguments, '[2].sql', ''));
-  const matches = query.match(/"?core"?.("\w+")/);
+  const matches = query.match(/insert into ("?core"?."\w+")/i);
 
   if (!matches) {
     return fn.apply(this, _.tail(arguments));
   }
 
-  queries.add(matches[1].replace(/"/g, ''));
+  queries.add(matches[1]);
 
   return fn.apply(this, _.tail(arguments));
 });
@@ -46,9 +46,7 @@ module.exports = {
       return;
     }
 
-    for (const table of queries) {
-      await knex.raw('TRUNCATE core.?? CASCADE', [table]);
-    }
+    await knex.raw(`TRUNCATE ${[...queries].join(',')} CASCADE`);
 
     queries.clear();
   },
